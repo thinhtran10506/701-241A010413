@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 23 - Đèn Kéo Quân - Trần Gia Thịnh</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #1a1a2e; color: white; text-align: center; margin: 0; padding: 20px; overflow-x: hidden; }
+        .student-info { background-color: #16213e; padding: 15px; border-radius: 8px; display: inline-block; margin-bottom: 50px; border: 2px solid #e94560; }
+        .student-info h2 { margin: 0 0 10px 0; color: #e94560; }
+        .scene { width: 250px; height: 180px; margin: 80px auto; perspective: 1000px; }
+        .carousel { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; animation: spin 15s infinite linear; }
+        .carousel__cell { position: absolute; width: 240px; height: 160px; left: 5px; top: 10px; border: 3px solid #00fff5; border-radius: 8px; overflow: hidden; box-shadow: 0 0 15px #00fff5; cursor: pointer; }
+        .carousel__cell img { width: 100%; height: 100%; object-fit: cover; }
+        .carousel__cell:nth-child(1) { transform: rotateY(0deg) translateZ(250px); }
+        .carousel__cell:nth-child(2) { transform: rotateY(60deg) translateZ(250px); }
+        .carousel__cell:nth-child(3) { transform: rotateY(120deg) translateZ(250px); }
+        .carousel__cell:nth-child(4) { transform: rotateY(180deg) translateZ(250px); }
+        .carousel__cell:nth-child(5) { transform: rotateY(240deg) translateZ(250px); }
+        .carousel__cell:nth-child(6) { transform: rotateY(300deg) translateZ(250px); }
+        @keyframes spin { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+        .back-btn { display: inline-block; margin-top: 100px; padding: 10px 20px; background: #e94560; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        .back-btn:hover { background: #d03a53; }
+    </style>
+</head>
+<body>
+    <div class="student-info">
+        <h2>Bài tập 23 - Đèn Kéo Quân</h2>
+        <p><strong>Họ và tên:</strong> Trần Gia Thịnh - <strong>MSSV:</strong> 241A010413</p>
+    </div>
+
+    <div class="scene">
+        <div class="carousel" id="lantern">
+            <div class="carousel__cell"><img src="images/anh1.jpg" alt="Ảnh 1"></div>
+            <div class="carousel__cell"><img src="images/anh2.jpg" alt="Ảnh 2"></div>
+            <div class="carousel__cell"><img src="images/anh3.jpg" alt="Ảnh 3"></div>
+            <div class="carousel__cell"><img src="images/anh4.jpg" alt="Ảnh 4"></div>
+            <div class="carousel__cell"><img src="images/anh5.jpg" alt="Ảnh 5"></div>
+            <div class="carousel__cell"><img src="images/anh6.jpg" alt="Ảnh 6"></div>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-btn">⬅ Quay lại Trang chủ</a>
+
+    <script>
+        const lantern = document.getElementById('lantern');
+        lantern.addEventListener('mouseover', () => lantern.style.animationPlayState = 'paused');
+        lantern.addEventListener('mouseleave', () => lantern.style.animationPlayState = 'running');
+    </script>
+</body>
+</html>

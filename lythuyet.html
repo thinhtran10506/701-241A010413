@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Phần 1: Lý thuyết - Trần Gia Thịnh</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; max-width: 900px; margin: auto; }
+        .answer-block { background: #fff; padding: 20px; border-left: 4px solid #007BFF; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h2 { color: #007BFF; font-size: 18px; }
+        pre { background: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>TRẢ LỜI LÝ THUYẾT</h1>
+    <a href="index.html">⬅ Quay lại Trang chủ</a>
+
+    <div class="answer-block">
+        <h2>Câu 1: Sự khác biệt giữa position: absolute và position: relative</h2>
+        <p><strong>Giải thích:</strong><br>
+        - <code>position: relative</code>: Phần tử vẫn giữ nguyên vị trí trong luồng tài liệu (document flow). Các thuộc tính top, right, bottom, left sẽ dịch chuyển phần tử so với vị trí gốc của chính nó.<br>
+        - <code>position: absolute</code>: Phần tử bị loại bỏ hoàn toàn khỏi luồng tài liệu. Nó được định vị tương đối so với phần tử cha gần nhất có thuộc tính position khác `static` (thường là cha dùng `relative`).</p>
+        <p><strong>Ảnh hưởng khi deploy / Responsive:</strong> Khi dùng `absolute` quá nhiều mà không có `relative` bao bọc, các phần tử sẽ tràn hoặc đè lên nhau khi kích thước màn hình (viewport) thay đổi, làm vỡ layout trên thiết bị di động.</p>
+    </div>
+
+    <div class="answer-block">
+        <h2>Câu 2: Quy trình đăng ký Domain & Hosting, vai trò của DNS</h2>
+        <p><strong>Quy trình:</strong> 1. Mua tên miền (Domain) tại nhà cung cấp (Namecheap, Tenten). 2. Thuê không gian lưu trữ (Hosting). 3. Trỏ Domain về Hosting thông qua DNS bằng cách cập nhật bản ghi A (chỉ đến IP server) hoặc CNAME.</p>
+        <p><strong>Vai trò DNS (Domain Name System):</strong> Đóng vai trò như một danh bạ điện thoại, dịch tên miền con người dễ đọc (vd: trangiathinh.infinityfreeapp.com) thành địa chỉ IP mà máy tính hiểu để tải mã nguồn về.</p>
+        <p><strong>Công cụ thay thế server:</strong> GitHub Pages, Netlify, Vercel.<br>
+        <strong>Rủi ro bảo mật:</strong> Nếu không cấu hình đúng DNS, website có thể bị tấn công Man-in-the-Middle (MITM), DNS Hijacking hoặc thiếu chứng chỉ SSL (HTTPS) khiến dữ liệu bị đánh cắp.</p>
+    </div>
+
+    <div class="answer-block">
+        <h2>Câu 3: So sánh let, const và var về scope và hoisting</h2>
+        <p><strong>Var:</strong> Function scope (phạm vi hàm). Bị hoisting đưa lên đầu và khởi tạo với giá trị `undefined`.<br>
+        <strong>Let & Const:</strong> Block scope (phạm vi khối `{}`). Có hoisting nhưng rơi vào vùng "Temporal Dead Zone" (TDZ), không thể truy cập trước khi khởi tạo. `Const` không thể gán lại giá trị mới.</p>
+        <p><strong>Ví dụ lỗi:</strong> Truy cập `let` trước khi khai báo sinh ra <code>ReferenceError</code>.</p>
+        <p><strong>Debug:</strong> Nhấn F12 mở Chrome DevTools -> Tab <strong>Sources</strong> -> Đặt breakpoint (điểm dừng) tại dòng code lỗi để theo dõi giá trị biến tại thời điểm thực thi.</p>
+    </div>
+
+    <div class="answer-block">
+        <h2>Câu 4: Event Delegation trong JavaScript</h2>
+        <p><strong>Khái niệm:</strong> Thay vì gắn Event Listener (trình lắng nghe sự kiện) cho từng phần tử con, ta gắn duy nhất một Event Listener cho phần tử cha chứa chúng. Kỹ thuật này tận dụng cơ chế Event Bubbling (sự kiện nổi bọt từ con lên cha).</p>
+        <p><strong>Lợi ích trên Dynamic List:</strong> Khi thêm một thẻ <code>&lt;li&gt;</code> mới vào danh sách bằng JS, thẻ mới sẽ tự động nhận được sự kiện click mà không cần phải gọi lại <code>addEventListener</code>. Điều này tối ưu hóa hiệu suất (tiết kiệm bộ nhớ do chỉ dùng 1 listener) và code gọn gàng hơn.</p>
+    </div>
+</body>
+</html>
